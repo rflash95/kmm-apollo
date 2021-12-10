@@ -83,8 +83,6 @@ android {
     defaultConfig {
         minSdkVersion(24)
         targetSdkVersion(30)
-        versionCode = 1
-        versionName = "1.0"
     }
 
     // TODO: Java Version
