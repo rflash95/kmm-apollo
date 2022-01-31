@@ -1,0 +1,56 @@
+CREATE TABLE Dessert(
+    id TEXT NOT NULL PRIMARY KEY,
+    userId TEXT NOT NULL,
+    name TEXT NOT NULL,
+    description TEXT NOT NULL,
+    imageUrl TEXT NOT NULL
+);
+
+CREATE TABLE Review(
+    id TEXT NOT NULL PRIMARY KEY,
+    userId TEXT NOT NULL,
+    dessertId TEXT NOT NULL,
+    text TEXT NOT NULL,
+    rating INTEGER NOT NULL
+);
+
+CREATE TABLE UserState(
+    userId TEXT NOT NULL ,
+    token TEXT NOT NULL
+);
+
+-- 2. Create, Read, Update or Destroy desserts or userState
+insertDessert:
+INSERT INTO Dessert(id,userId,name,description,imageUrl)
+VALUES (?,?,?,?,?);
+
+updateDessertById:
+UPDATE Dessert
+SET name = ?, description = ?, imageUrl = ?
+WHERE id = ?;
+
+removeAllDesserts:
+DELETE FROM Dessert;
+
+selectAllDesserts:
+SELECT * FROM Dessert;
+
+selectDessertById:
+SELECT * FROM Dessert
+WHERE id = ?;
+
+removeDessertById:
+DELETE FROM Dessert
+WHERE id = ?;
+
+selectUserState:
+SELECT * FROM UserState
+LIMIT 1;
+
+insertUserState:
+INSERT INTO UserState(userId, token)
+VALUES (?,?);
+
+removeUserState:
+DELETE FROM UserState;
+
